@@ -55,27 +55,12 @@ function BookingTable() {
         <div className="BookingTable">
             <MaterialTable
                 title="Bookings"
-                options={{ search: false, }}
+                //search bar allows you to search by booking type
+                options={{ search: true, }}
                 data={data}
                 columns={columns}
 
-                localization={{
-                    pagination: {
-                        labelDisplayedRows: '{from}-{to} of {count}'
-                    },
-                    toolbar: {
-                        nRowsSelected: '{0} row(s) selected'
-                    },
-                    header: {
-                        actions: 'Actions'
-                    },
-                    body: {
-                        emptyDataSourceMessage: 'No records to display',
-                        filterRow: {
-                            filterTooltip: 'Filter'
-                        }
-                    }
-                }}
+                 
             />
         </div>
     );
