@@ -2,22 +2,29 @@ import React, { useState, useEffect } from 'react';
 import MaterialTable from 'material-table';
 import moment from 'moment';
 
- 
+
 
 function BookingTable() {
-     
+
 
     const [data, setData] = useState([])
 
     // Using moment.js to format the dates for me
     const myDates = data.map(function (e) {
-
         let currentDate;
         currentDate = moment(e.datetime).format('MMMM Do YYYY, h:mm:ss a');
         return currentDate;
     });
 
     console.log(myDates);
+
+    // function to sort my data in ascending order by date
+    data.sort(function compare(a, b) {
+
+        var dateA = new Date(a.datetime).toLocaleDateString;
+        var dateB = new Date(b.datetime).toLocaleDateString;
+        return dateA - dateB;
+    });
 
     const columns = [
 
@@ -44,20 +51,31 @@ function BookingTable() {
     }, [])
 
 
-    // function to sort my data in ascending order by date
-    data.sort(function compare(a, b) {
-        var dateA = new Date(a.datetime);
-        var dateB = new Date(b.datetime);
-        return dateA - dateB;
-    });
-
     return (
         <div className="BookingTable">
             <MaterialTable
                 title="Bookings"
                 options={{ search: false, }}
                 data={data}
-                columns={columns} 
+                columns={columns}
+
+                localization={{
+                    pagination: {
+                        labelDisplayedRows: '{from}-{to} of {count}'
+                    },
+                    toolbar: {
+                        nRowsSelected: '{0} row(s) selected'
+                    },
+                    header: {
+                        actions: 'Actions'
+                    },
+                    body: {
+                        emptyDataSourceMessage: 'No records to display',
+                        filterRow: {
+                            filterTooltip: 'Filter'
+                        }
+                    }
+                }}
             />
         </div>
     );
