@@ -21,9 +21,8 @@ Please create a front-end application that does the following:
 - Add the ability to filter by booking type
 - Add unit tests
 
+##Setup
 
-
-###Setup
 
 ### Dependencies
 
