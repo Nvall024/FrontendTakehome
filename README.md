@@ -21,9 +21,31 @@ Please create a front-end application that does the following:
 - Add the ability to filter by booking type
 - Add unit tests
 
-## API
 
-- Booking information will be provided via a RESTful API. Please see the attached Swagger documentation for more details (includes URL, fields, methods, etc)
-- Additional information (on filtering and such) found here: https://restdb.io/docs/querying-with-the-api
 
-Thank you!
+##Setup
+
+### Dependencies
+
+- [npm](https://www.npmjs.com/get-npm)
+
+### Configuration
+
+Install all dependencies.
+
+```
+$ npm install
+```
+Booking information will be provided via a RESTful API. The project calls endpoints in "https://bookingapi-b86e.restdb.io/rest/bookings". You run it locally by pointing to a local instance of bookings. 
+
+#### Compilation
+
+We have a compilation script that can be run with the following command:
+
+```
+$ npm run start
+```
+
+This makes webpack compilate the project on port 3000.
+ 
+ 
